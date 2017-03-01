@@ -70,6 +70,20 @@ class Mailings
 
         return $this->_request->processRequest($url);
     }
+    
+    /**
+     * Method for sending mails
+     *
+     * @param array $mailing_data
+     * @param json $mailing_id or error
+     */
+    public function sendMailing($mailing_data)
+    {
+        $this->_request->method = "POST";
+        $this->_request->postData = $mailing_data;
+        $url = '/mailings';
+        return $this->_request->processRequest($url);
+    }
 
     /**
      * Method for retreaving a members personalized
