@@ -104,7 +104,7 @@ class Request
     {
         $url = $this->_baseURL;
         if (isset($requestPath) && $requestPath !== '') {
-            $url .= $this->_id . "/". $requestPath;
+            $url .= $this->_id . $requestPath;
         }
 
         $ch = curl_init();

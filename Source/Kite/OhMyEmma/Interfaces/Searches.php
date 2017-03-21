@@ -59,7 +59,7 @@ class Searches
      * @param string $searchId
      * @param boolan $members
      */
-    public function getSearches($searchId = '', $members = false, $deleted = false)
+    public function getSearches($searchId = '', $members = false, $deleted = false, $filters = false)
     {
         $this->_request->method = "GET";
         $url = '/searches';
@@ -71,6 +71,10 @@ class Searches
         }
         if ($deleted === true) {
             $url .= '?deleted=true';
+        }
+
+        if (is_array($filters) === true) {
+            $url .= '?' . http_build_query($filters);
         }
 
         return $this->_request->processRequest($url);
