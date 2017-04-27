@@ -16,12 +16,12 @@
 namespace Kite\OhMyEmma\Interfaces;
 
 /**
- * Class for creating events using the /events endpoint.
+ * Class for creating orders using the members/{member_id}/orders endpoint.
  * For full details of data formats and individual endpoints
  * refer to MyEmma.com's documentation. Last found here:
  * http://api.myemma.com/api/external/event_api.html
  */
-class Events
+class Orders
 {
 
     /**
@@ -57,19 +57,19 @@ class Events
     }
 
     /**
-     * Method for creating a new event
+     * Method for creating a new orders
      * Must include a valid email address and the
      * member must currently have and "Active" status.
      *
+     * @param numeric $member_id
      * @param string $email
      * @param array $fields
      */
-    public function createEvent($email, $fields = [])
+    public function createOrder($member_id, $fields = [])
     {
         $this->_request->method = 'POST';
-        $url = "/events";
+        $url = "/members/".$member_id."/orders";
 
-        $fields['email'] = $email;
         $this->_request->postData = $fields;
 
         return $this->_request->processRequest($url);
