@@ -37,7 +37,7 @@ class Orders
      *
      * @var string
      */
-    private $_baseURL = 'https://events.e2ma.net/v1/';
+    private $_baseURL = 'https://api.e2ma.net/';
 
     /**
      * Construct the member object which 
@@ -58,11 +58,9 @@ class Orders
 
     /**
      * Method for creating a new orders
-     * Must include a valid email address and the
      * member must currently have and "Active" status.
      *
      * @param numeric $member_id
-     * @param string $email
      * @param array $fields
      */
     public function createOrder($member_id, $fields = [])
