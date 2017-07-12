@@ -72,5 +72,31 @@ class Orders
 
         return $this->_request->processRequest($url);
     }
+    
+    /**
+    * Method for updating single order
+    * @param int $member_id		Emma Member Id
+    * @param int $order		Emma Order Id
+    * @return Returns order object if success false if not
+    */
+    function updateOrder($member_id, $order_id, $fields = []){
+        $this->_request->method = 'POST';
+        $url = "/members/".$member_id."/orders/". $order_id;
+        $this->_request->postData = $fields;
+        return $this->_request->processRequest($url);
+    }
+    
+    /**
+    * Method for retrieving single order
+    * @param sring $source		Source name
+    * @param int source_order_id		Source order Id
+    * @return Returns order object if success false if not
+    */
+    function updateOrder($source, $source_order_id, $fields = []){
+        $this->_request->method = 'POST';
+        $url = "/products/lookup?source=".$source."&source_order_id=". $source_order_id;
+        $this->_request->postData = $fields;
+        return $this->_request->processRequest($url);
+    }
 
 }
