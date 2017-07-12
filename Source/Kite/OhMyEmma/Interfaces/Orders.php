@@ -92,8 +92,8 @@ class Orders
     * @param int source_order_id		Source order Id
     * @return Returns order object if success false if not
     */
-    function updateOrder($source, $source_order_id, $fields = []){
-        $this->_request->method = 'POST';
+    function findOrder($source, $source_order_id, $fields = []){
+        $this->_request->method = 'GET';
         $url = "/products/lookup?source=".$source."&source_order_id=". $source_order_id;
         $this->_request->postData = $fields;
         return $this->_request->processRequest($url);
