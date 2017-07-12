@@ -94,7 +94,7 @@ class Orders
     */
     function findOrder($source, $source_order_id){
         $this->_request->method = 'GET';
-        $url = "/products/lookup?source=".$source."&source_order_id=". $source_order_id;
+        $url = "/orders/lookup?source=".$source."&source_order_id=". $source_order_id;
         return $this->_request->processRequest($url);
     }
 
